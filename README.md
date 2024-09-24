@@ -1,5 +1,5 @@
 # API Gateway
-En este repositorio se encuentra el desarrollo una API Gateway con microservicios. La herramienta expone endpoints para cada operación (con validación de sesión y permisos) y llama a microservicios los cuales permiten leer, crear, actualizar y borrar registros en base de datos, diferenciado en SQL (con uso de querys MySQL) y MongoDB.
+En este repositorio se encuentra el desarrollo una API Gateway con microservicios. La herramienta expone endpoints para cada operación (con validación de sesión y permisos) y llama a microservicios los cuales permiten leer, crear, actualizar y borrar registros en base de datos, diferenciado en SQL (con uso de querys MySQL) y MongoDB (con uso de esquemas).
 
 ## Tecnologías
 <div>

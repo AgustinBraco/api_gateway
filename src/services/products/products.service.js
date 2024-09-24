@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import '../../config/environment.js'
-import { sql, mongo } from '../../db/index.js'
+import databases from '../db/index.js'
 
 // Init
 const app = express()
@@ -13,12 +13,28 @@ app.use(express.json()) // JSON parser
 app.use(morgan('dev')) // Show requests
 app.use(cors({origin: 'localhost'})) // Whitelisting
 
-// Routes
-app.get('/service/sql/products', (req, res) => {
+// Get all
+app.get('/service/:db/getProducts', (req, res) => {
+  const { db } = req.params
+  let products
+
+  products = db === 'sql' 
+    ? databases.sql.products.getAll() 
+    : databases.mongo.products.getAll()
+
   res.json([{}])
 })
 
-app.get('/service/mongo/products', (req, res) => {
+// Create
+app.post('/service/:db/createProduct', (req, res) => {
+  const { db } = req.params
+  const productData = req.body
+  let product
+
+  product = db === 'sql' 
+    ? databases.sql.products.create(productData) 
+    : databases.mongo.products.create(productData)
+
   res.json([{}])
 })
 

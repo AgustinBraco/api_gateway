@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-// Product
+// Products
 const productSchema = new mongoose.Schema({
   product_id: {
     type: String,
@@ -15,9 +15,9 @@ const productSchema = new mongoose.Schema({
 
 export const Product = mongoose.model('Product', productSchema)
 
-// User
+// Users
 const userSchema = new mongoose.Schema({
-  product_id: {
+  user_id: {
     type: String,
     unique: true,
     require: true,
