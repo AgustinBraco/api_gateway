@@ -1,8 +1,5 @@
-// SQL exports
 import { ProductsSQL } from './sql/products/products.sql.js'
 import { UsersSQL } from './sql/users/users.sql.js'
-
-// Mongo exports 
 import { ProductsMongo } from './mongo/products/products.mongo.js'
 import { UsersMongo } from './mongo/users/users.mongo.js'
 
@@ -15,6 +12,6 @@ const databases = {
     products: new ProductsMongo(),
     users: new UsersMongo()
   }
-};
+}
 
-export default databases;
+export default databases

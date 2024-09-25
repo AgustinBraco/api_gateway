@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/gateway.js",
-    "products": "nodemon src/services/products/products.service.js",
-    "users": "nodemon src/services/users/users.service.js",
+    "products": "nodemon src/services/products.service.js",
+    "users": "nodemon src/services/users.service.js",
     "dev": "concurrently \"npm run products\" \"npm run users\" \"npm run start\""
   },
   "keywords": [],

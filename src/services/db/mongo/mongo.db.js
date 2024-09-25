@@ -9,9 +9,9 @@ export class Mongo {
   async connect() {
     try {
       await mongoose.connect(process.env.MONGO_URI)
-      console.log('MongoDB connected successfully')
+      console.log(this.constructor.name, 'connected successfully')
     } catch (error) {
-      console.error('MongoDB connection error:', error)
+      console.error(this.constructor.name, 'connection error:', error)
       process.exit(1)
     }
   }

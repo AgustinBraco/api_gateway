@@ -1,13 +1,15 @@
-import { SQL } from '../connect.sql.js';
+import { SQL } from '../sql.db.js';
 
 export class UsersSQL extends SQL {
   constructor() {
-    super();
+    super()
   }
 
   getAll(callback) {
+    console.log('SQL - Users - Get all')
   }
 
-  create(product, callback) {
+  create(user, callback) {
+    console.log('SQL - Users - Create')
   }
 }

@@ -17,10 +17,12 @@ export class SQL {
 
     try {
       pool.query('SELECT 1')
-      console.log('SQL connected successfully')
+      console.log(this.constructor.name, 'connected successfully')
     } catch (error) {
-      console.error('SQL connection error:', error)
+      console.error(this.constructor.name, 'connection error:', error)
       process.exit(1)
     }
+
+    return pool
   }
 }

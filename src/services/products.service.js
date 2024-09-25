@@ -1,8 +1,8 @@
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import '../../config/environment.js'
-import databases from '../db/index.js'
+import '../config/environment.js'
+import databases from './db/index.js'
 
 // Init
 const app = express()
@@ -14,7 +14,7 @@ app.use(morgan('dev')) // Show requests
 app.use(cors({origin: 'localhost'})) // Whitelisting
 
 // Get all
-app.get('/service/:db/getProducts', (req, res) => {
+app.get('/service/products/:db/getProducts', (req, res) => {
   const { db } = req.params
   let products
 
@@ -26,7 +26,7 @@ app.get('/service/:db/getProducts', (req, res) => {
 })
 
 // Create
-app.post('/service/:db/createProduct', (req, res) => {
+app.post('/service/products/:db/createProduct', (req, res) => {
   const { db } = req.params
   const productData = req.body
   let product
@@ -42,3 +42,5 @@ app.post('/service/:db/createProduct', (req, res) => {
 app.listen(PORT_PRODUCTS, () => {
   console.log(`Products service running on port ${PORT_PRODUCTS}`)
 })
+
+export default app

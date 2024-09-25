@@ -1,13 +1,15 @@
-import { Mongo } from '../connect.mongo.js';
+import { Mongo } from '../mongo.db.js';
 
 export class UsersMongo extends Mongo {
   constructor() {
-    super();
+    super()
   }
 
   getAll(callback) {
+    console.log('Mongo - Users - Get all')
   }
 
-  create(product, callback) {
+  create(user, callback) {
+    console.log('Mongo - Users - Create')
   }
 }
