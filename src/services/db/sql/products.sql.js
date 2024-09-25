@@ -1,6 +1,6 @@
-import { SQL } from '../sql.db.js';
+import SQL from '../sql.db.js'
 
-export class ProductsSQL extends SQL {
+class ProductsSQL extends SQL {
   constructor() {
     super()
   }
@@ -13,3 +13,5 @@ export class ProductsSQL extends SQL {
     console.log('SQL - Products - Create')
   }
 }
+
+export default ProductsSQL

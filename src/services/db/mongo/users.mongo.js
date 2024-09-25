@@ -1,6 +1,6 @@
-import { Mongo } from '../mongo.db.js';
+import Mongo from '../mongo.db.js'
 
-export class UsersMongo extends Mongo {
+class UsersMongo extends Mongo {
   constructor() {
     super()
   }
@@ -13,3 +13,5 @@ export class UsersMongo extends Mongo {
     console.log('Mongo - Users - Create')
   }
 }
+
+export default UsersMongo

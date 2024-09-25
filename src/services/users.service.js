@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import '../config/environment.js'
-import databases from './db/index.js'
+import databases from './db/db.js'
 
 // Init
 const app = express()

@@ -1,7 +1,7 @@
 import { createPool } from 'mysql'
-import '../../../config/environment.js'
+import '../../config/environment.js'
 
-export class SQL {
+class SQL {
   constructor() {
     this.connect()
   }
@@ -26,3 +26,5 @@ export class SQL {
     return pool
   }
 }
+
+export default SQL

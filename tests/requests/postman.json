@@ -21,7 +21,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/sql/getProducts",
+											"raw": "http://localhost:3000/api/products/sql/getProducts",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -29,6 +29,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"products",
 												"sql",
 												"getProducts"
 											]
@@ -41,8 +42,17 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3000/api/sql/createProduct",
+											"raw": "http://localhost:3000/api/products/sql/createProduct",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -50,6 +60,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"products",
 												"sql",
 												"createProduct"
 											]
@@ -68,7 +79,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/mongo/getProducts",
+											"raw": "http://localhost:3000/api/products/mongo/getProducts",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -76,6 +87,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"products",
 												"mongo",
 												"getProducts"
 											]
@@ -88,8 +100,17 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3000/api/mongo/createProduct",
+											"raw": "http://localhost:3000/api/products/mongo/createProduct",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -97,6 +118,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"products",
 												"mongo",
 												"createProduct"
 											]
@@ -120,7 +142,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/sql/getUsers",
+											"raw": "http://localhost:3000/api/users/sql/getUsers",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -128,6 +150,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"users",
 												"sql",
 												"getUsers"
 											]
@@ -140,8 +163,17 @@
 									"request": {
 										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3000/api/sql/createUser",
+											"raw": "http://localhost:3000/api/users/sql/createUser",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -149,6 +181,7 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"users",
 												"sql",
 												"createUser"
 											]
@@ -162,12 +195,12 @@
 							"name": "Mongo",
 							"item": [
 								{
-									"name": "Create user",
+									"name": "Get users",
 									"request": {
-										"method": "POST",
+										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/mongo/createUser",
+											"raw": "http://localhost:3000/api/users/mongo/getUsers",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -175,20 +208,30 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"users",
 												"mongo",
-												"createUser"
+												"getUsers"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "Users Copy",
+									"name": "Create user",
 									"request": {
-										"method": "GET",
+										"method": "POST",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3000/api/mongo/getUsers",
+											"raw": "http://localhost:3000/api/users/mongo/createUser",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -196,8 +239,9 @@
 											"port": "3000",
 											"path": [
 												"api",
+												"users",
 												"mongo",
-												"getUsers"
+												"createUser"
 											]
 										}
 									},
@@ -224,7 +268,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3001/service/sql/getProducts",
+											"raw": "http://localhost:3001/service/products/sql/getProducts",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -232,6 +276,7 @@
 											"port": "3001",
 											"path": [
 												"service",
+												"products",
 												"sql",
 												"getProducts"
 											]
@@ -245,7 +290,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3001/service/sql/createProduct",
+											"raw": "http://localhost:3001/service/products/sql/createProduct",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -253,6 +298,7 @@
 											"port": "3001",
 											"path": [
 												"service",
+												"products",
 												"sql",
 												"createProduct"
 											]
@@ -271,7 +317,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3001/service/mongo/getProducts",
+											"raw": "http://localhost:3001/service/products/mongo/getProducts",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -279,6 +325,7 @@
 											"port": "3001",
 											"path": [
 												"service",
+												"products",
 												"mongo",
 												"getProducts"
 											]
@@ -292,7 +339,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3001/service/mongo/createProduct",
+											"raw": "http://localhost:3001/service/products/mongo/createProduct",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -300,6 +347,7 @@
 											"port": "3001",
 											"path": [
 												"service",
+												"products",
 												"mongo",
 												"createProduct"
 											]
@@ -323,7 +371,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3002/service/sql/getUsers",
+											"raw": "http://localhost:3002/service/users/sql/getUsers",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -331,6 +379,7 @@
 											"port": "3002",
 											"path": [
 												"service",
+												"users",
 												"sql",
 												"getUsers"
 											]
@@ -344,7 +393,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3002/service/sql/createUser",
+											"raw": "http://localhost:3002/service/users/sql/createUser",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -352,6 +401,7 @@
 											"port": "3002",
 											"path": [
 												"service",
+												"users",
 												"sql",
 												"createUser"
 											]
@@ -370,7 +420,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3002/service/mongo/getUsers",
+											"raw": "http://localhost:3002/service/users/mongo/getUsers",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -378,6 +428,7 @@
 											"port": "3002",
 											"path": [
 												"service",
+												"users",
 												"mongo",
 												"getUsers"
 											]
@@ -391,7 +442,7 @@
 										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3002/service/mongo/createUser",
+											"raw": "http://localhost:3002/service/users/mongo/createUser",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -399,6 +450,7 @@
 											"port": "3002",
 											"path": [
 												"service",
+												"users",
 												"mongo",
 												"createUser"
 											]

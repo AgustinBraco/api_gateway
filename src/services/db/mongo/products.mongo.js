@@ -1,6 +1,6 @@
-import { Mongo } from '../mongo.db.js';
+import Mongo from '../mongo.db.js'
 
-export class ProductsMongo extends Mongo {
+class ProductsMongo extends Mongo {
   constructor() {
     super()
   }
@@ -13,3 +13,5 @@ export class ProductsMongo extends Mongo {
     console.log('Mongo - Products - Create')
   }
 }
+
+export default ProductsMongo

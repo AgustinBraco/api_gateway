@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
-import '../../../config/environment.js'
+import '../../config/environment.js'
 
-export class Mongo {
+class Mongo {
   constructor() {
     this.connect()
   }
@@ -16,3 +16,5 @@ export class Mongo {
     }
   }
 }
+
+export default Mongo
