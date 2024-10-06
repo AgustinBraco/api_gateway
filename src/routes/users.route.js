@@ -1,43 +1,62 @@
 import axios from 'axios'
 import { Router } from 'express'
-import UserDTO from '../dto/user.dto.js'
-import { isInvalidParam, isValidUser } from '../utils/data.utils.js'
 
 const usersRoutes = Router()
 
 // Get all
 usersRoutes.get('/:db/getUsers', async (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
-    return res.status(400).json({ error: 'Parametro inválido'})
-
   try {
-    console.log("getUsers from gateway")
     const response = await axios.get(`http://localhost:3002/service/users/${db}/getUsers`)
-    res.json(response.data)
+    return res.status(response.data.statusCode).json({ status: response.data.status, message: response.data.message, data: response.data.data })
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener usuarios' })
+    return res.status(error.response.status).json({ status: 'error', message: error.response.statusText, data: null })
+  }
+})
+
+// Get by ID
+usersRoutes.get('/:db/getUser/:id', async (req, res) => {
+  const { db, id } = req.params
+  try {
+    const response = await axios.get(`http://localhost:3002/service/users/${db}/getUser/${id}`)
+    return res.status(response.data.statusCode).json({ status: response.data.status, message: response.data.message, data: response.data.data })
+  } catch (error) {
+    return res.status(error.response.status).json({ status: 'error', message: error.response.statusText, data: null })
   }
 })
 
 // Create
 usersRoutes.post('/:db/createUser', async (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
-    return res.status(400).json({ error: 'Parametro inválido'})
-
-  let user
-  const userData = req.body
-  if (isValidUser(userData))
-    user = new UserDTO(userData)
-  else
-    return res.status(400).json({ error: 'Cuerpo inválido'})
-
+  const user = req.body
   try {
     const response = await axios.post(`http://localhost:3002/service/users/${db}/createUser`, user)
-    res.json(response.data)
+    return res.status(response.data.statusCode).json({ status: response.data.status, message: response.data.message, data: response.data.data })
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener usuarios' })
+    return res.status(error.response.status).json({ status: 'error', message: error.response.statusText, data: null })
+  }
+})
+
+// Update
+usersRoutes.put('/:db/updateUser/:id', async (req, res) => {
+  const { db, id } = req.params
+  const user = req.body
+  try {
+    const response = await axios.put(`http://localhost:3002/service/users/${db}/updateUser/${id}`, user)
+    return res.status(response.data.statusCode).json({ status: response.data.status, message: response.data.message, data: response.data.data })
+  } catch (error) {
+    return res.status(error.response.status).json({ status: 'error', message: error.response.statusText, data: null })
+  }
+})
+
+// Delete
+usersRoutes.delete('/:db/deleteUser/:id', async (req, res) => {
+  const { db, id } = req.params
+  try {
+    const response = await axios.delete(`http://localhost:3002/service/users/${db}/deleteUser/${id}`)
+    return res.status(response.data.statusCode).json({ status: response.data.status, message: response.data.message, data: response.data.data })
+  } catch (error) {
+    return res.status(error.response.status).json({ status: 'error', message: error.response.statusText, data: null })
   }
 })
 

@@ -3,7 +3,7 @@ import '../../config/environment.js'
 
 class SQL {
   constructor() {
-    this.connect()
+    this.pool = this.connect()
   }
 
   connect() {

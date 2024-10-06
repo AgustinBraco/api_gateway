@@ -1,5 +1,14 @@
+import mongoose from 'mongoose'
+
 export const isInvalidParam = param => {
   if (param === 'sql' || param === 'mongo')
+    return false
+  else
+    return true
+}
+
+export const isInvalidID = id => {
+  if (mongoose.Types.ObjectId.isValid(id))
     return false
   else
     return true
