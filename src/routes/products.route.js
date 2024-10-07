@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { Router } from 'express'
+import isAuth from '../middlewares/auth.middleware.js'
+import isAdmin from '../middlewares/role.middleware.js'
 
 const productsRoutes = Router()
 
@@ -26,7 +28,7 @@ productsRoutes.get('/:db/getProduct/:id', async (req, res) => {
 })
 
 // Create
-productsRoutes.post('/:db/createProduct', async (req, res) => {
+productsRoutes.post('/:db/createProduct', isAuth, isAdmin, async (req, res) => {
   const { db } = req.params
   const product = req.body
   try {
@@ -38,7 +40,7 @@ productsRoutes.post('/:db/createProduct', async (req, res) => {
 })
 
 // Update
-productsRoutes.put('/:db/updateProduct/:id', async (req, res) => {
+productsRoutes.put('/:db/updateProduct/:id', isAuth, isAdmin, async (req, res) => {
   const { db, id } = req.params
   const product = req.body
   try {
@@ -50,7 +52,7 @@ productsRoutes.put('/:db/updateProduct/:id', async (req, res) => {
 })
 
 // Delete
-productsRoutes.delete('/:db/deleteProduct/:id', async (req, res) => {
+productsRoutes.delete('/:db/deleteProduct/:id', isAuth, isAdmin, async (req, res) => {
   const { db, id } = req.params
   try {
     const response = await axios.delete(`http://localhost:3001/service/products/${db}/deleteProduct/${id}`)

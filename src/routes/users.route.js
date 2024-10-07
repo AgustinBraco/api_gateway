@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { Router } from 'express'
+import isAuth from '../middlewares/auth.middleware.js'
+import isAdmin from '../middlewares/role.middleware.js'
 
 const usersRoutes = Router()
 
 // Get all
-usersRoutes.get('/:db/getUsers', async (req, res) => {
+usersRoutes.get('/:db/getUsers', isAuth, isAdmin, async (req, res) => {
   const { db } = req.params
   try {
     const response = await axios.get(`http://localhost:3002/service/users/${db}/getUsers`)
@@ -15,7 +17,7 @@ usersRoutes.get('/:db/getUsers', async (req, res) => {
 })
 
 // Get by ID
-usersRoutes.get('/:db/getUser/:id', async (req, res) => {
+usersRoutes.get('/:db/getUser/:id', isAuth, isAdmin, async (req, res) => {
   const { db, id } = req.params
   try {
     const response = await axios.get(`http://localhost:3002/service/users/${db}/getUser/${id}`)
@@ -26,7 +28,7 @@ usersRoutes.get('/:db/getUser/:id', async (req, res) => {
 })
 
 // Create
-usersRoutes.post('/:db/createUser', async (req, res) => {
+usersRoutes.post('/:db/createUser', isAuth, isAdmin, async (req, res) => {
   const { db } = req.params
   const user = req.body
   try {
@@ -38,7 +40,7 @@ usersRoutes.post('/:db/createUser', async (req, res) => {
 })
 
 // Update
-usersRoutes.put('/:db/updateUser/:id', async (req, res) => {
+usersRoutes.put('/:db/updateUser/:id', isAuth, isAdmin, async (req, res) => {
   const { db, id } = req.params
   const user = req.body
   try {
@@ -50,7 +52,7 @@ usersRoutes.put('/:db/updateUser/:id', async (req, res) => {
 })
 
 // Delete
-usersRoutes.delete('/:db/deleteUser/:id', async (req, res) => {
+usersRoutes.delete('/:db/deleteUser/:id', isAuth, isAdmin, async (req, res) => {
   const { db, id } = req.params
   try {
     const response = await axios.delete(`http://localhost:3002/service/users/${db}/deleteUser/${id}`)

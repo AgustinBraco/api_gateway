@@ -1,10 +1,11 @@
 import express from 'express'
+import session from 'express-session';
 import morgan from 'morgan'
 import cors from 'cors'
 import '../config/environment.js'
 import databases from './db/db.js'
 import UserDTO from '../dto/user.dto.js'
-import { isInvalidParam, isInvalidID, isValidUser } from '../utils/validate.utils.js'
+import { isInvalidDB, isInvalidID, isInvalidUser } from '../utils/validate.utils.js'
 
 // Init
 const app = express()
@@ -14,6 +15,14 @@ const PORT_USERS = app.set('port', process.env.PORT_USERS || 3002).settings.port
 app.use(express.json()) // JSON parser
 app.use(morgan('dev')) // Show requests
 app.use(cors({origin: 'localhost'})) // Whitelisting
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 3600000 },
+  }),
+)
 
 // Response
 const handleResponse = res => (error, message, data) => {
@@ -27,7 +36,8 @@ const handleResponse = res => (error, message, data) => {
 // Get all
 app.get('/service/users/:db/getUsers', (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
+  
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   db === 'sql'
@@ -38,7 +48,8 @@ app.get('/service/users/:db/getUsers', (req, res) => {
 // Get by ID
 app.get('/service/users/:db/getUser/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   if (isInvalidID(id))
@@ -52,16 +63,15 @@ app.get('/service/users/:db/getUser/:id', (req, res) => {
 // Create
 app.post('/service/users/:db/createUser', (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
-    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
-
-  let user
   const userData = req.body
-  if (isValidUser(userData))
-    user = new UserDTO(userData)
-  else
-    return res.status(400).json({ status: 'error', message: 'Invalid body', data: null })
 
+  if (isInvalidDB(db))
+    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
+  
+  if (isInvalidUser(userData))
+    return res.status(400).json({ status: 'error', message: 'Invalid body', data: null })
+  
+  const user = new UserDTO(userData)
   db === 'sql'
     ? databases.sql.users.create(user, handleResponse(res))
     : databases.mongo.users.create(user, handleResponse(res))
@@ -70,19 +80,18 @@ app.post('/service/users/:db/createUser', (req, res) => {
 // Update by ID
 app.put('/service/users/:db/updateUser/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+  const userData = req.body
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
   
   if (isInvalidID(id))
     return res.status(400).json({ status: 'error', message: 'Invalid ID', data: null })
 
-  let user
-  const userData = req.body
-  if (isValidUser(userData))
-    user = new UserDTO(userData)
-  else
+  if (isInvalidUser(userData))
     return res.status(400).json({ status: 'error', message: 'Invalid body', data: null })
-
+  
+  const user = new UserDTO(userData)
   db === 'sql'
     ? databases.sql.users.update(id, user, handleResponse(res))
     : databases.mongo.users.update(id, user, handleResponse(res))
@@ -91,7 +100,8 @@ app.put('/service/users/:db/updateUser/:id', (req, res) => {
 // Delete by ID
 app.delete('/service/users/:db/deleteUser/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   if (isInvalidID(id))

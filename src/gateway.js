@@ -1,4 +1,5 @@
 import express from 'express'
+import session from 'express-session';
 import morgan from 'morgan'
 import cors from 'cors'
 import './config/environment.js'
@@ -12,6 +13,14 @@ const PORT_GATEWAY = app.set('port', process.env.PORT_GATEWAY || 3000).settings.
 app.use(express.json()) // JSON parser
 app.use(morgan('dev')) // Show requests
 app.use(cors()) // Whitelisting
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 3600000 },
+  }),
+)
 
 // Run
 router(app)

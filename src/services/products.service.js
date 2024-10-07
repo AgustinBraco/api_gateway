@@ -1,10 +1,11 @@
 import express from 'express'
+import session from 'express-session';
 import morgan from 'morgan'
 import cors from 'cors'
 import '../config/environment.js'
 import databases from './db/db.js'
 import ProductDTO from '../dto/product.dto.js'
-import { isInvalidParam, isInvalidID, isValidProduct } from '../utils/validate.utils.js'
+import { isInvalidDB, isInvalidID, isInvalidProduct } from '../utils/validate.utils.js'
 
 // Init
 const app = express()
@@ -14,6 +15,14 @@ const PORT_PRODUCTS = app.set('port', process.env.PORT_PRODUCTS || 3001).setting
 app.use(express.json()) // JSON parser
 app.use(morgan('dev')) // Show requests
 app.use(cors({origin: 'localhost'})) // Whitelisting
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 3600000 },
+  }),
+)
 
 // Response
 const handleResponse = res => (error, message, data) => {
@@ -27,7 +36,8 @@ const handleResponse = res => (error, message, data) => {
 // Get all
 app.get('/service/products/:db/getProducts', (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   db === 'sql'
@@ -38,7 +48,8 @@ app.get('/service/products/:db/getProducts', (req, res) => {
 // Get by ID
 app.get('/service/products/:db/getProduct/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   if (isInvalidID(id))
@@ -52,46 +63,45 @@ app.get('/service/products/:db/getProduct/:id', (req, res) => {
 // Create
 app.post('/service/products/:db/createProduct', (req, res) => {
   const { db } = req.params
-  if (isInvalidParam(db))
-    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
-
-  let product
   const productData = req.body
-  if (isValidProduct(productData))
-    product = new ProductDTO(productData)
-  else
+
+  if (isInvalidDB(db))
+    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
+  
+  if (isInvalidProduct(productData))
     return res.status(400).json({ status: 'error', message: 'Invalid body', data: null })
 
+  const product = new ProductDTO(productData)
   db === 'sql'
-    ? databases.sql.products.create(productData, handleResponse(res))
-    : databases.mongo.products.create(productData, handleResponse(res))
+    ? databases.sql.products.create(product, handleResponse(res))
+    : databases.mongo.products.create(product, handleResponse(res))
 })
 
 // Update by ID
 app.put('/service/products/:db/updateProduct/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+  const productData = req.body
+
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   if (isInvalidID(id))
     return res.status(400).json({ status: 'error', message: 'Invalid ID', data: null })
-
-  let product
-  const productData = req.body
-  if (isValidProduct(productData))
-    product = new ProductDTO(productData)
-  else
+  
+  if (isInvalidProduct(productData))
     return res.status(400).json({ status: 'error', message: 'Invalid body', data: null })
 
+  const product = new ProductDTO(productData)
   db === 'sql'
-    ? databases.sql.products.update(id, productData, handleResponse(res))
-    : databases.mongo.products.update(id, productData, handleResponse(res))
+    ? databases.sql.products.update(id, product, handleResponse(res))
+    : databases.mongo.products.update(id, product, handleResponse(res))
 })
 
 // Delete by ID
 app.delete('/service/products/:db/deleteProduct/:id', (req, res) => {
   const { db, id } = req.params
-  if (isInvalidParam(db))
+  
+  if (isInvalidDB(db))
     return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
 
   if (isInvalidID(id))

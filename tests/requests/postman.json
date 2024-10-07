@@ -43,7 +43,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/products/sql/getProduct/1",
+											"raw": "http://localhost:3000/api/products/sql/getProduct/53d83f99c78caa4eedadc35b",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -54,7 +54,7 @@
 												"products",
 												"sql",
 												"getProduct",
-												"1"
+												"53d83f99c78caa4eedadc35b"
 											]
 										}
 									},
@@ -98,7 +98,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
+											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"NEW\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -106,7 +106,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/products/sql/updateProduct/1",
+											"raw": "http://localhost:3000/api/products/sql/updateProduct/b88fc158e4e07f3a5672bc1f",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -117,7 +117,7 @@
 												"products",
 												"sql",
 												"updateProduct",
-												"1"
+												"b88fc158e4e07f3a5672bc1f"
 											]
 										}
 									},
@@ -129,7 +129,7 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/products/sql/deleteProduct/1",
+											"raw": "http://localhost:3000/api/products/sql/deleteProduct/3ca659d9c2ae237c59052418",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -140,7 +140,7 @@
 												"products",
 												"sql",
 												"deleteProduct",
-												"1"
+												"3ca659d9c2ae237c59052418"
 											]
 										}
 									},
@@ -179,7 +179,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/products/mongo/getProduct/1",
+											"raw": "http://localhost:3000/api/products/mongo/getProduct/6702f6de304b70609732bb6f",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -190,7 +190,7 @@
 												"products",
 												"mongo",
 												"getProduct",
-												"1"
+												"6702f6de304b70609732bb6f"
 											]
 										}
 									},
@@ -203,7 +203,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
+											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboarddd\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -234,7 +234,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
+											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"NEW\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -242,7 +242,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/products/mongo/updateProduct/1",
+											"raw": "http://localhost:3000/api/products/mongo/updateProduct/6702f6de304b70609732bb6f",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -253,7 +253,7 @@
 												"products",
 												"mongo",
 												"updateProduct",
-												"1"
+												"6702f6de304b70609732bb6f"
 											]
 										}
 									},
@@ -265,7 +265,7 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/products/mongo/deleteProduct/1",
+											"raw": "http://localhost:3000/api/products/mongo/deleteProduct/67033a2c2452855a4f1a6ca6",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -276,7 +276,7 @@
 												"products",
 												"mongo",
 												"deleteProduct",
-												"1"
+												"67033a2c2452855a4f1a6ca6"
 											]
 										}
 									},
@@ -320,7 +320,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/users/sql/getUser/1",
+											"raw": "http://localhost:3000/api/users/sql/getUser/9af86633f01ff2a8eed627fc",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -331,7 +331,7 @@
 												"users",
 												"sql",
 												"getUser",
-												"1"
+												"9af86633f01ff2a8eed627fc"
 											]
 										}
 									},
@@ -375,7 +375,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"raw": "{\r\n    \"email\": \"b@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -383,7 +383,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/users/sql/updateUser/1",
+											"raw": "http://localhost:3000/api/users/sql/updateUser/9af86633f01ff2a8eed627fc",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -394,7 +394,7 @@
 												"users",
 												"sql",
 												"updateUser",
-												"1"
+												"9af86633f01ff2a8eed627fc"
 											]
 										}
 									},
@@ -406,7 +406,7 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/users/sql/deleteUser/1",
+											"raw": "http://localhost:3000/api/users/sql/deleteUser/a5fa89f48e32711d977ca4cf",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -417,7 +417,7 @@
 												"users",
 												"sql",
 												"deleteUser",
-												"1"
+												"a5fa89f48e32711d977ca4cf"
 											]
 										}
 									},
@@ -456,7 +456,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3000/api/users/mongo/getUser/1",
+											"raw": "http://localhost:3000/api/users/mongo/getUser/6702f740a6a54e689cf1467b",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -467,7 +467,7 @@
 												"users",
 												"mongo",
 												"getUser",
-												"1"
+												"6702f740a6a54e689cf1467b"
 											]
 										}
 									},
@@ -511,7 +511,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"raw": "{\r\n    \"email\": \"b@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -519,7 +519,7 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3000/api/users/mongo/updateUser/1",
+											"raw": "http://localhost:3000/api/users/mongo/updateUser/6702f740a6a54e689cf1467b",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -530,430 +530,7 @@
 												"users",
 												"mongo",
 												"updateUser",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get user Copy",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3000/api/users/mongo/deleteUser/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3000",
-											"path": [
-												"api",
-												"users",
-												"mongo",
-												"deleteUser",
-												"1"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Services",
-			"item": [
-				{
-					"name": "Products",
-					"item": [
-						{
-							"name": "SQL",
-							"item": [
-								{
-									"name": "Get products",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/sql/getProducts",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"sql",
-												"getProducts"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get product",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/sql/getProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"sql",
-												"getProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create product",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/service/products/sql/createProduct",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"sql",
-												"createProduct"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update product",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/service/products/sql/updateProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"sql",
-												"updateProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete product",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/sql/deleteProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"sql",
-												"deleteProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Mongo",
-							"item": [
-								{
-									"name": "Get products",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/mongo/getProducts",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"mongo",
-												"getProducts"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get product",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/mongo/getProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"mongo",
-												"getProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create product",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/service/products/mongo/createProduct",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"mongo",
-												"createProduct"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update product",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    // \"name\": \"\", // Invalid\r\n    // \"name\": 100, // Invalid\r\n    // \"name\": true, // Invalid\r\n    // \"name\": [], // Invalid\r\n    \"name\": \"Keyboard\", // Valid\r\n    \"price\": 100, // Optional\r\n    \"stock\": 10 // Optional\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3001/service/products/mongo/updateProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"mongo",
-												"updateProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete product",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3001/service/products/mongo/deleteProduct/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3001",
-											"path": [
-												"service",
-												"products",
-												"mongo",
-												"deleteProduct",
-												"1"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "Users",
-					"item": [
-						{
-							"name": "SQL",
-							"item": [
-								{
-									"name": "Get users",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3002/service/users/sql/getUsers",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"sql",
-												"getUsers"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get user",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3002/service/users/sql/getUser/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"sql",
-												"getUser",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create user",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3002/service/users/sql/createUser",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"sql",
-												"createUser"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update user",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"a@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:3002/service/users/sql/updateUser/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"sql",
-												"updateUser",
-												"1"
+												"6702f740a6a54e689cf1467b"
 											]
 										}
 									},
@@ -965,75 +542,35 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:3002/service/users/sql/deleteUser/1",
+											"raw": "http://localhost:3000/api/users/mongo/deleteUser/67033827627e1ec29a31283f",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3002",
+											"port": "3000",
 											"path": [
-												"service",
+												"api",
 												"users",
-												"sql",
+												"mongo",
 												"deleteUser",
-												"1"
+												"67033827627e1ec29a31283f"
 											]
 										}
 									},
 									"response": []
 								}
 							]
-						},
+						}
+					]
+				},
+				{
+					"name": "Sessions",
+					"item": [
 						{
-							"name": "Mongo",
+							"name": "SQL",
 							"item": [
 								{
-									"name": "Get users",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3002/service/users/mongo/getUsers",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"mongo",
-												"getUsers"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get user",
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:3002/service/users/mongo/getUser/1",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "3002",
-											"path": [
-												"service",
-												"users",
-												"mongo",
-												"getUser",
-												"1"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create user",
+									"name": "Register",
 									"request": {
 										"method": "POST",
 										"header": [],
@@ -1047,26 +584,26 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3002/service/users/mongo/createUser",
+											"raw": "http://localhost:3000/api/sessions/sql/register",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3002",
+											"port": "3000",
 											"path": [
-												"service",
-												"users",
-												"mongo",
-												"createUser"
+												"api",
+												"sessions",
+												"sql",
+												"register"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "Update user",
+									"name": "Login",
 									"request": {
-										"method": "PUT",
+										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
@@ -1078,41 +615,248 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:3002/service/users/mongo/updateUser/1",
+											"raw": "http://localhost:3000/api/sessions/sql/login",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3002",
+											"port": "3000",
 											"path": [
-												"service",
-												"users",
-												"mongo",
-												"updateUser",
-												"1"
+												"api",
+												"sessions",
+												"sql",
+												"login"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "Get user Copy",
+									"name": "Login admin",
 									"request": {
-										"method": "DELETE",
-										"header": [],
+										"method": "POST",
+										"header": [
+											{
+												"key": "apikey",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"!\",\r\n    \"role\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "http://localhost:3002/service/users/mongo/deleteUser/1",
+											"raw": "http://localhost:3000/api/sessions/sql/login/admin",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
-											"port": "3002",
+											"port": "3000",
 											"path": [
-												"service",
-												"users",
+												"api",
+												"sessions",
+												"sql",
+												"login",
+												"admin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Logout",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/sql/logout",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"sql",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Current",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/sql/current",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"sql",
+												"current"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mongo",
+							"item": [
+								{
+									"name": "Register",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"abaa@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/mongo/register",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
 												"mongo",
-												"deleteUser",
-												"1"
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"abaa@gmail.com\", // Valid\r\n    \"password\": \"abc\" // Valid\r\n    // \"key\": \"\", // Invalid\r\n    // \"key\": 100, // Invalid\r\n    // \"key\": true, // Invalid\r\n    // \"key\": [], // Invalid\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/mongo/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"mongo",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Login admin",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "apikey",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\",\r\n    \"role\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/mongo/login/admin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"mongo",
+												"login",
+												"admin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Logout",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/mongo/logout",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"mongo",
+												"logout"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Current",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/api/sessions/mongo/current",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"sessions",
+												"mongo",
+												"current"
 											]
 										}
 									},
