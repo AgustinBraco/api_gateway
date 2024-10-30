@@ -1,0 +1,544 @@
+paths:
+  /api/users/{DB}/getUsers:
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'Users retrieved successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        password:
+                          type: string
+                        role:
+                          type: string
+                    example:
+                      - id: '3882dfbc5142847eab50246a'
+                        email: 'a@gmail.com'
+                        password: '$2a$10$4wvVL...'
+                        role: 'user'
+                      - id: 'a3a40d24151e5b9c6246afee'
+                        email: 'aa@gmail.com'
+                        password: '$2a$10$ZYxaT7...'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Bad request'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/users/{DB}/getUser/{ID}:
+    get:
+      summary: Get user by ID
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User retrieved successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        password:
+                          type: string
+                        role:
+                          type: string
+                    example:
+                      - id: '3882dfbc5142847eab50246a'
+                        email: 'a@gmail.com'
+                        password: '$2a$10$4wvVL...'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'User not found'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/users/{DB}/createUser:
+    post:
+      summary: Create user
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: 'b@gmail.com'
+                password: 'VeryStrongPassword'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User created successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        password:
+                          type: string
+                        role:
+                          type: string
+                    example:
+                      - id: 'f6cd46d6ac6d0ddecbaa6040'
+                        email: 'b@gmail.com'
+                        password: '$2a$10$79pkcE...'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Duplicate entry "b@gmail.com" for key "email"'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/users/{DB}/updateUser/{ID}:
+    put:
+      summary: Update user by ID
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: 'b@gmail.com'
+                password: 'NewPassword'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User updated successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        email:
+                          type: string
+                        password:
+                          type: string
+                        role:
+                          type: string
+                    example:
+                      - id: 'a3a40d24151e5b9c6246afee'
+                        email: 'b@gmail.com'
+                        password: '$2a$10$fkV0'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Duplicate entry "b@gmail.com" for key "email"'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/users/{DB}/deleteUser/{ID}:
+    delete:
+      summary: Delete user by ID
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'success'
+                  message: 'User deleted successfully'
+                  data: null
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'User not found'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null

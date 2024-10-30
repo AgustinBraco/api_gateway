@@ -1,0 +1,482 @@
+paths:
+  /api/products/{DB}/getProducts:
+    get:
+      summary: Get all products
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'Products retrieved successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        price:
+                          type: integer
+                        stock:
+                          type: integer
+                    example:
+                      - id: 'aa7f8b8cea0bb06c90b0907e'
+                        name: 'Keyboard'
+                        price: 100
+                        stock: 10
+                      - id: 'd76319353c71e8cb88ae6e62'
+                        name: 'Mouse'
+                        price: 50
+                        stock: 5
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Bad request'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/products/{DB}/getProduct/{ID}:
+    get:
+      summary: Get product by ID
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'Product retrieved successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        price:
+                          type: integer
+                        stock:
+                          type: integer
+                    example:
+                      - id: 'aa7f8b8cea0bb06c90b0907e'
+                        name: 'Keyboard'
+                        price: 100
+                        stock: 10
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Product not found'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/products/{DB}/createProduct:
+    post:
+      summary: Create product
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+                stock:
+                  type: integer
+              example:
+                name: 'Headset'
+                price: 80
+                stock: 8
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'Product created successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        price:
+                          type: integer
+                        stock:
+                          type: integer
+                    example:
+                      - id: 'b2a770d4170ce5cf3a635440'
+                        name: 'Headset'
+                        price: 80
+                        stock: 8
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Duplicate entry "Headset" for key "name"'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/products/{DB}/updateProduct/{ID}:
+    put:
+      summary: Update product by ID
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+                stock:
+                  type: integer
+              example:
+                name: 'Keyboard Redragon'
+                price: 200
+                stock: 2
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'Product updated successfully'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        price:
+                          type: integer
+                        stock:
+                          type: integer
+                    example:
+                      - id: 'aa7f8b8cea0bb06c90b0907e'
+                        name: 'Keyboard Redragon'
+                        price: 200
+                        stock: 2
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Duplicate entry "Keyboard Redragon" for key "name"'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/products/{DB}/deleteProduct/{ID}:
+    delete:
+      summary: Delete product by ID
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'success'
+                  message: 'Product deleted successfully'
+                  data: null
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Product not found'
+                  data: null
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Authentication required'
+                  data: null
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Access restricted'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null

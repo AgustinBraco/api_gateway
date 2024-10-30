@@ -4,6 +4,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import './config/environment.js'
 import router from './router.js'
+import documentation from '../docs/swagger.js';
 
 // Init
 const app = express()
@@ -24,6 +25,7 @@ app.use(
 
 // Run
 router(app)
+documentation(app)
 
 app.listen(PORT_GATEWAY, () => {
   console.log(`API Gateway running on port ${PORT_GATEWAY}`)

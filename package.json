@@ -23,7 +23,9 @@
     "express-myconnection": "^1.0.4",
     "express-session": "^1.18.0",
     "mongoose": "^8.6.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "concurrently": "^9.0.1",

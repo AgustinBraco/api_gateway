@@ -1,0 +1,275 @@
+paths:
+  /api/sessions/{DB}/register:
+    post:
+      summary: Register new user
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: 'a@gmail.com'
+                password: 'VeryStrongPassword'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User registered successfully'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                      role:
+                        type: string
+                    example:
+                        email: 'a@gmail.com'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Duplicate entry "a@gmail.com" for key "email"'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/sessions/{DB}/login:
+    post:
+      summary: Login existing user
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: 'a@gmail.com'
+                password: 'VeryStrongPassword'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User signed in successfully'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                      role:
+                        type: string
+                    example:
+                        email: 'a@gmail.com'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Invalid credentials'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/sessions/{DB}/current:
+    get:
+      summary: Get current session
+      tags:
+        - Sessions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'success'
+                  message:
+                    type: string
+                    example: 'User retrieved successfully'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                      role:
+                        type: string
+                    example:
+                        email: 'a@gmail.com'
+                        role: 'user'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'User not loged'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null
+  /api/sessions/{DB}/logout:
+    delete:
+      summary: Close current session
+      tags:
+        - Sessions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'success'
+                  message: 'User logout successfully'
+                  data: null
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Bad request'
+                  data: null
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: null
+                example:
+                  status: 'error'
+                  message: 'Internal server error'
+                  data: null

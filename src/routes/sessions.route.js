@@ -42,20 +42,6 @@ sessionsRoutes.post('/:db/login/admin', async (req, res) => {
   return res.status(200).json({ status: 'success', message: 'Admin loged successfully' })
 })
 
-// Logout
-sessionsRoutes.delete('/:db/logout', async (req, res) => {
-  const { db } = req.params
-  if (isInvalidDB(db))
-    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
-  
-  try {
-    req.session.destroy()
-    return res.status(200).json({ status: 'success', message: 'User logout successfully', data: null })
-  } catch (error) {
-    return res.status(500).json({ status: 'error', message: 'Internal server error', data: null })
-  }
-})
-
 // Current
 sessionsRoutes.get('/:db/current', async (req, res) => {
   const { db } = req.params
@@ -67,7 +53,21 @@ sessionsRoutes.get('/:db/current', async (req, res) => {
     if (!user)
       return res.status(400).json({ status: 'error', message: 'User not loged', data: null })
     else
-      return res.status(200).json({ status: 'success', message: 'User retrieved succesffully', data: user.email })
+      return res.status(200).json({ status: 'success', message: 'User retrieved succesffully', data: user })
+  } catch (error) {
+    return res.status(500).json({ status: 'error', message: 'Internal server error', data: null })
+  }
+})
+
+// Logout
+sessionsRoutes.delete('/:db/logout', async (req, res) => {
+  const { db } = req.params
+  if (isInvalidDB(db))
+    return res.status(400).json({ status: 'error', message: 'Invalid database', data: null })
+  
+  try {
+    req.session.destroy()
+    return res.status(200).json({ status: 'success', message: 'User logout successfully', data: null })
   } catch (error) {
     return res.status(500).json({ status: 'error', message: 'Internal server error', data: null })
   }
